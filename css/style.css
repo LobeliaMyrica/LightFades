@@ -1,0 +1,99 @@
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面背景和点击高亮 */
+html,
+body {
+  background: #141414;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 页面淡入（保留 0.25s） */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* 图片底部区域：高度 = 图片宽度的比例，贴在图片底部 */
+.bottom-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  aspect-ratio: 5 / 1;
+}
+
+/* backicon：贴在 .bottom-bar 顶部，离图片底边距离 = .bottom-bar 高度 */
+.backicon {
+  position: absolute;
+  left: 10%;
+  width: 30%;
+  display: block;
+}
+
+/* 全局隐藏滚动条 */
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* 旧版 Edge / IE */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* Chrome / Safari / 新版 Edge */
+}
+
+/* 热区：定位基准 = 所在容器 */
+.hotspot {
+  position: absolute;
+  cursor: pointer;
+  z-index: 5;
+  /* 调试用，确认后删掉 */
+  /* background: rgba(255, 0, 0, 0.3);
+  outline: 2px dashed red; */
+}
+
+/* 弹窗层：盖住整个外壳，遮罩统一 50% */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 402px;
+  height: 100vh;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 弹窗图片：宽度适配外壳，缩放统一 0.98 → 1 */
+.popup-overlay img {
+  width: 100%;
+  display: block;
+  transform: scale(0.98);
+  transition: transform 0.3s ease;
+}
+
+.popup-overlay.show img {
+  transform: scale(1);
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#141414">
+  <link rel="stylesheet" href="css/style.css">
+  <title>避光纪 & 明日方舟 - 时间线</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* 外壳：限制手机宽度 */
+    .phone {
+      position: relative;
+      width: 100%;
+      max-width: 402px;
+      height: 100vh;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* 底层背景：拉伸填满，不滚动 */
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      z-index: 0;
+    }
+
+    /* 顶部标题：固定在顶部，不滚动 */
+    .title {
+      position: absolute;
+      top: 1vw;
+      left: 0;
+      width: 100%;
+      display: block;
+      z-index: 1;
+    }
+
+    /* 时间线滚动容器 */
+    .timeline-wrap {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 23%;
+      bottom: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 2;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 8%);
+    }
+
+    /* 内层：宽度=图宽，高度由图撑开，作为热区定位基准 */
+    .timeline-inner {
+      position: relative;
+      width: 100%;
+    }
+
+    .timeline-inner>img.timeline-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #hs-londinium {
+      left: 33.17%;
+      top: 1.75%;
+      width: 40.88%;
+      height: 4.53%;
+    }
+
+    #hs-londinium_2 {
+      left: 33.42%;
+      top: 12.91%;
+      width: 61.77%;
+      height: 3.70%;
+    }
+
+    #hs-vina {
+      left: 36.57%;
+      top: 33.01%;
+      width: 19.82%;
+      height: 3.73%;
+    }
+
+    #hs-entracte {
+      left: 69.65%;
+      top: 28.68%;
+      width: 25.62%;
+      height: 2.89%;
+    }
+
+    #hs-cha1 {
+      left: 34.08%;
+      top: 7.83%;
+      width: 26.70%;
+      height: 3.65%;
+    }
+
+    #hs-cha2 {
+      left: 35.49%;
+      top: 19.69%;
+      width: 25.87%;
+      height: 3.54%;
+    }
+
+    #hs-cha3 {
+      left: 35.49%;
+      top: 25.50%;
+      width: 25.87%;
+      height: 3.56%;
+    }
+
+    #hs-cha4 {
+      left: 35.49%;
+      top: 39.44%;
+      width: 25.87%;
+      height: 3.64%;
+    }
+
+    #hs-cha5 {
+      left: 35.49%;
+      top: 46.21%;
+      width: 25.87%;
+      height: 3.52%;
+    }
+
+    #hs-cha6 {
+      left: 35.49%;
+      top: 51.25%;
+      width: 25.87%;
+      height: 3.48%;
+    }
+
+    #hs-cha7 {
+      left: 66.34%;
+      top: 90.76%;
+      width: 24.38%;
+      height: 3.59%;
+    }
+
+    #hs-act-or-die {
+      left: 37.81%;
+      top: 57.89%;
+      width: 19.40%;
+      height: 3.76%;
+    }
+
+    #hs-15-disrecombin {
+      left: 37.81%;
+      top: 75.98%;
+      width: 19.40%;
+      height: 3.70%;
+    }
+
+    #hs-16-abnormal-spectrum {
+      left: 37.81%;
+      top: 82.55%;
+      width: 19.40%;
+      height: 3.65%;
+    }
+
+    #hs-17-critical-phasetrans {
+      left: 37.81%;
+      top: 90.60%;
+      width: 19.40%;
+      height: 3.73%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="phone">
+    <img class="bg" src="assets/catalog_bg.webp" alt="背景">
+    <img class="title" src="assets/catalog_title.webp" alt="标题">
+
+    <div class="timeline-wrap">
+      <div class="timeline-inner">
+        <img class="timeline-img" src="assets/catalog_timeline.webp" alt="时间线">
+        <div class="hotspot" id="hs-londinium"></div>
+        <div class="hotspot" id="hs-londinium_2"></div>
+        <div class="hotspot" id="hs-vina"></div>
+        <div class="hotspot" id="hs-act-or-die"></div>
+        <div class="hotspot" id="hs-15-disrecombin"></div>
+        <div class="hotspot" id="hs-16-abnormal-spectrum"></div>
+        <div class="hotspot" id="hs-17-critical-phasetrans"></div>
+        <a href="index.html" class="hotspot" id="hs-entracte"></a>
+        <a href="cha1.html" class="hotspot" id="hs-cha1"></a>
+        <a href="cha2.html" class="hotspot" id="hs-cha2"></a>
+        <a href="cha3.html" class="hotspot" id="hs-cha3"></a>
+        <a href="cha4.html" class="hotspot" id="hs-cha4"></a>
+        <a href="cha5.html" class="hotspot" id="hs-cha5"></a>
+        <a href="cha6.html" class="hotspot" id="hs-cha6"></a>
+        <a href="cha7.html" class="hotspot" id="hs-cha7"></a>
+
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="popup-londinium">
+      <img src="assets/popup_londinium.webp" alt="弹窗">
+    </div>
+    <div class="popup-overlay" id="popup-vina">
+      <img src="assets/popup_vina.webp" alt="弹窗">
+    </div>
+    <div class="popup-overlay" id="popup-act-or-die">
+      <img src="assets/popup_act_or_die.webp" alt="弹窗">
+    </div>
+    <div class="popup-overlay" id="popup-15-disrecombin">
+      <img src="assets/popup_15_disrecombin.webp" alt="弹窗">
+    </div>
+    <div class="popup-overlay" id="popup-16-abnormal-spectrum">
+      <img src="assets/popup_16_abnormal_spectrum.webp" alt="弹窗">
+    </div>
+    <div class="popup-overlay" id="popup-17-critical-phasetrans">
+      <img src="assets/popup_17_critical_phasetrans.webp" alt="弹窗">
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    const pairs = [
+      { hotspot: 'hs-londinium', popup: 'popup-londinium' },
+      { hotspot: 'hs-londinium_2', popup: 'popup-londinium' },
+      { hotspot: 'hs-vina', popup: 'popup-vina' },
+      { hotspot: 'hs-act-or-die', popup: 'popup-act-or-die' },
+      { hotspot: 'hs-15-disrecombin', popup: 'popup-15-disrecombin' },
+      { hotspot: 'hs-16-abnormal-spectrum', popup: 'popup-16-abnormal-spectrum' },
+      { hotspot: 'hs-17-critical-phasetrans', popup: 'popup-17-critical-phasetrans' },
+    ];
+
+    pairs.forEach(function (pair) {
+      const hs = document.getElementById(pair.hotspot);
+      const popup = document.getElementById(pair.popup);
+      if (!hs || !popup) return;
+
+      hs.addEventListener('click', function (e) {
+        e.stopPropagation();
+        popup.classList.add('show');
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#141414">
+<link rel="stylesheet" href="css/style.css">
+<title>Entr'acte 黑猫白猫</title>
+<style>
+  .page {
+    width: 100%;
+    max-width: 402px;
+    margin: 0 auto;
+  }
+
+  /* 长图和按钮的共同容器，宽度跟长图一致 */
+  .image-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .image-wrap img.long {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #hs-vellum {
+    left: 15.72%;
+    top: 18.71%;
+    width: 13.87%;
+    height: 3.51%;
+  }
+
+  #hs-lucian {
+    left: 31.05%;
+    top: 47.62%;
+    width: 14.06%;
+    height: 3.48%;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="image-wrap">
+    <img class="long" src="assets/entracte.webp" alt="首页">
+
+    <div class="hotspot" id="hs-vellum"></div>
+    <div class="hotspot" id="hs-lucian"></div>
+
+    <div class="bottom-bar">
+      <a href="catalog.html">
+        <img class="backicon" src="assets/backicon.webp" alt="进入目录">
+      </a>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popup-vellum">
+    <img src="assets/profile_vellum.webp" alt="弹窗">
+  </div>
+  <div class="popup-overlay" id="popup-lucian">
+    <img src="assets/popup_lucian.webp" alt="弹窗">
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  const pairs = [
+    { hotspot: 'hs-vellum', popup: 'popup-vellum' },
+    { hotspot: 'hs-lucian', popup: 'popup-lucian' }
+  ];
+
+  pairs.forEach(function (pair) {
+    const hs = document.getElementById(pair.hotspot);
+    const popup = document.getElementById(pair.popup);
+    if (!hs || !popup) return;
+
+    hs.addEventListener('click', function (e) {
+      e.stopPropagation();
+      popup.classList.add('show');
+    });
+  });
+</script>
+
+</body>
+</html>

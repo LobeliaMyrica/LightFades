@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#141414">
+<link rel="stylesheet" href="css/style.css">
+<title>Chapter 7 ｜ 幕落</title>
+<style>
+  .page {
+    width: 100%;
+    max-width: 402px;
+    margin: 0 auto;
+  }
+
+  /* 长图和按钮的共同容器，宽度跟长图一致 */
+  .image-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .image-wrap img.long {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #hs-letter {
+    left: 34.77%;
+    top: 90.83%;
+    width: 30.47%;
+    height: 2.29%;
+  }
+
+  /* 长弹窗滚动容器 */
+  .popup-scroll {
+    width: 100%;
+    max-width: 402px;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .popup-scroll img {
+    width: 100%;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="image-wrap">
+    <img class="long" src="assets/cha7.webp" alt="第7章">
+
+    <div class="hotspot" id="hs-letter"></div>
+
+    <div class="bottom-bar">
+      <a href="catalog.html">
+        <img class="backicon" src="assets/backicon.webp" alt="进入目录">
+      </a>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popup-letter">
+    <div class="popup-scroll">
+      <img src="assets/letter.webp" alt="弹窗">
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  const pairs = [
+    { hotspot: 'hs-letter', popup: 'popup-letter' }
+  ];
+
+  pairs.forEach(function (pair) {
+    const hs = document.getElementById(pair.hotspot);
+    const popup = document.getElementById(pair.popup);
+    if (!hs || !popup) return;
+
+    hs.addEventListener('click', function (e) {
+      e.stopPropagation();
+      popup.classList.add('show');
+    });
+  });
+</script>
+
+</body>
+</html>
